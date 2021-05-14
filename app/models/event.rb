@@ -4,7 +4,9 @@
 #
 #  id          :bigint           not null, primary key
 #  description :text
+#  status      :integer
 #  time        :time
+#  votes       :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :bigint           not null
@@ -19,4 +21,6 @@
 #
 class Event < ApplicationRecord
   belongs_to :user
+
+  enum status: [ :unapproved, :approved ]
 end
