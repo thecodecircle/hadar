@@ -16,8 +16,10 @@
       <tr>
         <td><%= event.time.strftime("%H:%M")  %></td>
         <td><%= event.description %></td>
-        <td><%= link_to 'עריכה', edit_event_path(event) %></td>
-        <td><%= link_to 'מחיקה', event, method: :delete, data: { confirm: 'בטוח.ה?' } %></td>
+        <% if user_signed_in? && (current_user.admin? || current_user.events.include?(event))  %>
+          <td><%= link_to 'עריכה', edit_event_path(event) %></td>
+          <td><%= link_to 'מחיקה', event, method: :delete, data: { confirm: 'בטוח.ה?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
