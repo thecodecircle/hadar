@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <%= render 'layouts/nav' %>
+    <main>
+      <%= yield %>
+      <%= link_to new_event_path, class: "btn btn-add-event" do %>
+        <%= image_tag 'airplane.svg' %>
+      <% end %>
+    </main>
   </body>
 </html>

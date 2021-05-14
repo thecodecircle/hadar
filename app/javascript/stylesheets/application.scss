@@ -1,0 +1,30 @@
+@import "bootstrap";
+* {
+  box-sizing: border-box;
+}
+
+main {
+  padding: 1rem;
+}
+nav {
+  img {
+    height: 10vh;
+  }
+  background-color: #fe0000;
+}
+
+.btn-add-event {
+  background-color: #fe0000;
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  height: 10vmax;
+  width: 10vmax;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 70%;
+  }
+}

@@ -1,0 +1,12 @@
+<nav class="navbar navbar-light ">
+  <div class="container-fluid">
+    <%= link_to root_path do %>
+      <%= image_tag 'logo.jpg' %>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <%= bootstrap_icon "box-arrow-left", width: '25', fill: "white" %>
+      <% end %>
+    <% end %>
+  </div>
+</nav>
