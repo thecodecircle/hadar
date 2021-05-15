@@ -1,8 +1,8 @@
 <% @events.each do |event| %>
-  <div class="card border-top-0 border-end-0 border-start-0" >
+  <div class="card border-0" >
     <div class="card-body">
-      <h5 class="card-title mb-0"><%= event.user.name %></h5>
-      <small class="card-subtitle text-muted"><%= event.date.strftime("%d/%m") %> | <%= event.time.strftime("%H:%M") %></small>
+      <h5 class="card-title "><%= event.user.name %></h5>
+      <h6 class="card-subtitle text-muted "><%= event.street %> </h6>
       <p class="card-text mt-2"><%= event.description %></p>
       <% if user_signed_in? && (current_user.admin? || current_user.events.include?(event))  %>
         <td>
@@ -16,6 +16,9 @@
           <% end %>
         </td>
       <% end %>
+    </div>
+    <div class="card-footer text-muted bg-white border-top-0 border-bottom d-flex justify-content-end">
+      <small class="card-subtitle text-muted"><%= event.date.strftime("%d/%m") %> | <%= event.time.strftime("%H:%M") %></small>
     </div>
   </div>
 <% end %>

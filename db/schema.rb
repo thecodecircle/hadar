@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2021_05_15_191513) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.integer "votes"
     t.integer "status"
     t.date "date"
     t.decimal "lat"
