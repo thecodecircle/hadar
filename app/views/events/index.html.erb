@@ -1,7 +1,12 @@
 <% @events.each do |event| %>
-  <div class="card border-0" >
+  <div class="card border-0 event" >
     <div class="card-body">
-      <h5 class="card-title "><%= event.user.name %></h5>
+      <h5 class="card-title ">
+        <% if event.unapproved? %>
+          <%= bootstrap_icon "asterisk", width: 20, height: 20, fill: "red" %>
+        <% end %>
+        <%= event.user.name %>
+      </h5>
       <h6 class="card-subtitle text-muted "><%= event.street %> </h6>
       <p class="card-text mt-2"><%= event.description %></p>
       <% if user_signed_in? && (current_user.admin? || current_user.events.include?(event))  %>
@@ -17,7 +22,7 @@
         </td>
         <td>
           <%= link_to toggle_status_path(id: event.id), class: "btn btn-outline-info" do %>
-            <%= bootstrap_icon "house", width: 20, height: 20, fill: "#dc3545" %>
+            <%= bootstrap_icon "emoji-heart-eyes", width: 20, height: 20, fill: "#0dcaf0" %>
           <% end %>
         </td>
       <% end %>
