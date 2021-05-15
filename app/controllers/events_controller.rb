@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: %i[:index]
+  before_action :authenticate_user!, except: :index
 
   # GET /events or /events.json
   def index
-    if current_user.admin?
+    if user_signed_in? && current_user.admin?
       @events = Event.all
     else
       @events = Event.where(status: :approved)

@@ -10,6 +10,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_user_role
+    if !user_signed_in? || !current_user.admin?
+      redirect_to root_path
+    end
     @user = User.find(params[:user])
     if params[:role].present? && User.roles.include?(params[:role].to_sym)
       @user.role = params[:role].to_sym
