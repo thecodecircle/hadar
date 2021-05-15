@@ -36,6 +36,11 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     zoomOffset: -1,
     accessToken: 'pk.eyJ1IjoiY29kZS1jaXJjbGUiLCJhIjoiY2tvcHVhN25iMG93aDJ2c2o3dTl5YnZ1diJ9.Rvm7HGxwSnjLs6bYKswCIg'
 }).addTo(map);
+<% events = Event.where(status: :approved).order(created_at: :desc) %>
+<% events.each do |event| %>
+  L.marker([<%= event.lat %>, <%= event.long %>]).addTo(map);
+  console.log("<%= event.description %>");
+<% end %>
 
 function onLocationFound(e) {
     var radius = e.accuracy;
