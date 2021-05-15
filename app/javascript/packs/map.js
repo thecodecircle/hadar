@@ -64,7 +64,7 @@ function onMapClick(e) {
     popup
         .setLatLng(e.latlng)
         // .setContent("You clicked the map at " + e.latlng.toString())
-        .setContent("<a href='/events/new?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng + "'>דיווח על אירוע ב" + address.road + "</a>")
+        .setContent("<a href='/events/new?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng + "&street=" + address.road + "'>דיווח על אירוע ב" + address.road + "</a>")
         .openOn(map);
   }
 

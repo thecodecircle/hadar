@@ -1,16 +1,15 @@
+<div class="mb-3">דיווח ברחוב <%= params[:street] %></div>
 <%= simple_form_for(@event) do |f| %>
   <div class="mb-3">
-    <%= f.input :time,html5: :true,  label: t(:hour),input_html: {class:"form-control"},label_html: {class:"form-label"} %>
+    <%= f.input :time, html5: :true,  label: t(:hour),input_html: {class:"form-control"},label_html: {class:"form-label"} %>
   </div>
   <div class="mb-3">
     <%= f.input :date, label: t(:date), html5: :true,input_html: {class:"form-control"},label_html: {class:"form-label"}, required: :true  %>
   </div>
   <div class="mb-3">
     <%= f.input :description, label: t(:description),input_html: {class:"form-control", rows: 10},label_html: {class:"form-label"}  %>
-    <%= f.input :lat, label: "lat", input_html: {class:"form-control", value: params[:lat]}, label_html: {class:"form-label"}  %>
   </div>
-  <div class="mb-3">
-    <%= f.input :long, label: "long", input_html: {class:"form-control", value: params[:lng]}, label_html: {class:"form-label"}  %>
-  </div>
+  <%= f.input :lat, label: "lat", input_html: {class:"d-none", value: params[:lat]}, label_html: {class:"d-none"}  %>
+  <%= f.input :long, label: "long", input_html: {class:"d-none", value: params[:lng]}, label_html: {class:"d-none"}  %>
   <%= f.button :submit,  t(:send), class: "btn btn-cta w-100" %>
 <% end %>
