@@ -12,8 +12,5 @@
   <div class="mb-3">
     <%= f.input :long, label: "long", input_html: {class:"form-control", value: params[:lng]}, label_html: {class:"form-label"}  %>
   </div>
-  <div class="mb-3">
-    <%= f.input :description, label: "תיאור", input_html: {class:"form-control", rows: 10}, label_html: {class:"form-label"}  %>
-  </div>
   <%= f.button :submit,  t(:send), class: "btn btn-cta w-100" %>
 <% end %>
