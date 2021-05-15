@@ -8,7 +8,9 @@
 #  lat         :decimal(, )
 #  long        :decimal(, )
 #  status      :integer
+#  street      :string
 #  time        :time
+#  votes       :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :bigint           not null
