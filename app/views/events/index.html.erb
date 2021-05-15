@@ -15,6 +15,11 @@
             <%= bootstrap_icon "trash", width: 20, height: 20, fill: "#dc3545" %>
           <% end %>
         </td>
+        <td>
+          <%= link_to toggle_status_path(id: event.id), class: "btn btn-outline-info" do %>
+            <%= bootstrap_icon "house", width: 20, height: 20, fill: "#dc3545" %>
+          <% end %>
+        </td>
       <% end %>
     </div>
     <div class="card-footer text-muted bg-white border-top-0 border-bottom d-flex justify-content-end">
