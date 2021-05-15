@@ -9,7 +9,8 @@
   <div class="mb-3">
     <%= f.input :description, label: t(:description),input_html: {class:"form-control", rows: 10},label_html: {class:"form-label"}  %>
   </div>
-  <%= f.input :lat, label: "lat", input_html: {class:"d-none", value: params[:lat]}, label_html: {class:"d-none"}  %>
-  <%= f.input :long, label: "long", input_html: {class:"d-none", value: params[:lng]}, label_html: {class:"d-none"}  %>
+  <%= f.input :lat, label: false, input_html: {class:"d-none", value: params[:lat]}  %>
+  <%= f.input :long, label: false, input_html: {class:"d-none", value: params[:lng]}  %>
+  <%= f.input :street, label: false, input_html: {class:"d-none", value: params[:street]}  %>
   <%= f.button :submit,  t(:send), class: "btn btn-cta w-100" %>
 <% end %>
