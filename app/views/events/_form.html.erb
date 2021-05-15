@@ -1,12 +1,12 @@
 <%= simple_form_for(@event) do |f| %>
   <div class="mb-3">
-    <%= f.input :time,html5: :true,  label: 'שעה',input_html: {class:"form-control"},label_html: {class:"form-label"} %>
+    <%= f.input :time,html5: :true,  label: t(:hour),input_html: {class:"form-control"},label_html: {class:"form-label"} %>
   </div>
   <div class="mb-3">
-    <%= f.input :date, label: "תאריך", html5: :true,input_html: {class:"form-control"},label_html: {class:"form-label"}, required: :true  %>
+    <%= f.input :date, label: t(:date), html5: :true,input_html: {class:"form-control"},label_html: {class:"form-label"}, required: :true  %>
   </div>
   <div class="mb-3">
-    <%= f.input :description, label: "תיאור",input_html: {class:"form-control", rows: 10},label_html: {class:"form-label"}  %>
+    <%= f.input :description, label: t(:description),input_html: {class:"form-control", rows: 10},label_html: {class:"form-label"}  %>
   </div>
-  <%= f.button :submit, "שליחה", class: "btn btn-cta w-100" %>
+  <%= f.button :submit,  t(:send), class: "btn btn-cta w-100" %>
 <% end %>

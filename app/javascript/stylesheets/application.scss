@@ -81,3 +81,10 @@ fieldset[disabled] .btn-cta.active {
   height: 95vh;
   width: 95vw;
 }
+
+.btn:hover,
+.btn:focus {
+  svg {
+    fill: white;
+  }
+}

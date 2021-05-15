@@ -5,8 +5,16 @@
       <small class="card-subtitle text-muted"><%= event.date.strftime("%d/%m") %> | <%= event.time.strftime("%H:%M") %></small>
       <p class="card-text mt-2"><%= event.description %></p>
       <% if user_signed_in? && (current_user.admin? || current_user.events.include?(event))  %>
-        <td><%= link_to 'עריכה', edit_event_path(event), class: "btn btn-outline-warning" %></td>
-        <td><%= link_to 'מחיקה', event, method: :delete, data: { confirm: 'בטוח.ה?' }, class: "btn btn-outline-danger" %></td>
+        <td>
+          <%= link_to edit_event_path(event), class: "btn btn-outline-warning" do %>
+            <%= bootstrap_icon "pen", width: 20, height: 20, fill: "#ffc107" %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to event, method: :delete, data: { confirm: 'בטוח.ה?' }, class: "btn btn-outline-danger" do %>
+            <%= bootstrap_icon "trash", width: 20, height: 20, fill: "#dc3545" %>
+          <% end %>
+        </td>
       <% end %>
     </div>
   </div>

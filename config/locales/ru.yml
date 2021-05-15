@@ -1,0 +1,12 @@
+he:
+  logout: "התנתקות"
+  signup: "הרשמה"
+  login: "התחברות"
+  admin: "ניהול משתמשים"
+  new_event: "דיווח על אירוע"
+  hour: "שעה"
+  date: "תאריך"
+  description: "תיאור"
+  send: "שליחה"
+  edit: "עריכה"
+  delete: "מחיקה"
