@@ -10,3 +10,7 @@ en:
   description: "Description"
   send: "Send"
   whatapp: "Request to be a reliable user"
+  js:
+    radius: "You are in a radius of %{radius} meters from this point"
+    no_gps: "Why not give us your location? We're very nice, and none of your information will go to that asshole Zuckerburg"
+    report: "Report an event at"
