@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2021_05_14_172134) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.integer "votes"
     t.integer "status"
     t.index ["user_id"], name: "index_events_on_user_id"
   end

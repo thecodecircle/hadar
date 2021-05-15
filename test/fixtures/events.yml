@@ -6,7 +6,6 @@
 #  description :text
 #  status      :integer
 #  time        :time
-#  votes       :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :bigint           not null

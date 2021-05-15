@@ -1,12 +1,24 @@
-<nav class="navbar navbar-light ">
+<nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
-    <%= link_to root_path do %>
+    <%= link_to root_path, class: 'navbar-brand' do %>
       <%= image_tag 'logo.jpg' %>
     <% end %>
     <% if user_signed_in? %>
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <%= bootstrap_icon "box-arrow-left", width: '25', fill: "white" %>
-      <% end %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to "ממשק ניהול משתמשים", user_index_path, class: "text-white nav-link" if current_user.admin? %>
+          </li>
+          <li class="nav-item">
+            <%= link_to destroy_user_session_path, method: :delete, class: "text-white nav-link" do %>
+              התנתקות
+            <% end %>
+          </li>
+        </ul>
+      </div>
     <% end %>
   </div>
 </nav>
