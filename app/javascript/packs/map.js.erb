@@ -10,6 +10,7 @@ OpenStreetMap_Mapnik.addTo(map);
 <% events = Event.where(status: :approved).order(created_at: :desc) %>
 let marker;
 <% events.each do |event| %>
+  console.log("<%= event.lat %>")
   marker = L.marker([<%= event.lat %>, <%= event.long %>]).addTo(map);
   marker.bindPopup("<%= event.date.strftime("%d/%m") %> | <%= event.time.strftime("%H:%M") %>: <%= event.description %>").openPopup();
 <% end %>
@@ -32,9 +33,11 @@ var address = {}
 httpRequest.onreadystatechange = function (data) {
 address = JSON.parse(httpRequest.response).address
 console.log(address.road);
+const urlParams = new URLSearchParams(window.location.search);
+const locale = urlParams.get('locale');
 popup
 .setLatLng(e.latlng)
-.setContent("<a href='/events/new?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng + "&street=" + address.road + "'>דיווח על אירוע ב" + address.road + "</a>")
+.setContent("<a href='/events/new?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng + "&street=" + address.road + "&locale=" + locale + "'>דיווח על אירוע ב" + address.road + "</a>")
 .openOn(map);
 }
 }

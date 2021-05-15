@@ -1,5 +1,5 @@
-<div class="mb-3">דיווח ברחוב <%= params[:street] %></div>
 <%= simple_form_for(@event) do |f| %>
+  <div class="mb-3">דיווח ברחוב <%= params[:street] || @event.street %></div>
   <div class="mb-3">
     <%= f.input :time, html5: :true,  label: t(:hour),input_html: {class:"form-control"},label_html: {class:"form-label"} %>
   </div>
@@ -9,8 +9,8 @@
   <div class="mb-3">
     <%= f.input :description, label: t(:description),input_html: {class:"form-control", rows: 10},label_html: {class:"form-label"}  %>
   </div>
-  <%= f.input :lat, label: false, input_html: {class:"d-none", value: params[:lat]}  %>
-  <%= f.input :long, label: false, input_html: {class:"d-none", value: params[:lng]}  %>
-  <%= f.input :street, label: false, input_html: {class:"d-none", value: params[:street]}  %>
+  <%= f.input :lat, label: false, input_html: {class:"d-none", value: params[:lat] || @event.lat}  %>
+  <%= f.input :long, label: false, input_html: {class:"d-none", value: params[:lng] || @event.long}  %>
+  <%= f.input :street, label: false, input_html: {class:"d-none", value: params[:street] || @event.street}  %>
   <%= f.button :submit,  t(:send), class: "btn btn-cta w-100" %>
 <% end %>
