@@ -24,9 +24,9 @@ class User < ApplicationRecord
   has_many :events
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  enum role: [:admin, :reliable, :simple_user]
+  enum role: [:admin, :reliable, :unreliable]
 
   before_create do
-    self.role = :simple_user
+    self.role = :unreliable
   end
 end

@@ -28,7 +28,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-    if current_user.simple_user?
+    if current_user.unreliable?
       @event.status = :unapproved
     else
       @event.status = :approved

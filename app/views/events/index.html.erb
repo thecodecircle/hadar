@@ -12,3 +12,5 @@
   </div>
 <% end %>
 <br>
+<%= link_to "ממשק ניהול משתמשים", user_index_path, class: "btn btn-outline-primary" if current_user.admin? %>
+<br>

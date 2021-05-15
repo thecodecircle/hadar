@@ -1,0 +1,39 @@
+<div class="table-responsive">
+  <table class="table table-hover">
+    <caption>ממשק אישור משתמשים אמינים</caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">שם</th>
+      <th scope="col">אימייל</th>
+      <th scope="col">תפקיד</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each_with_index do |user, index| %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+          <!-- <div class="btn-group" role="group" aria-label="<%= user.name %> status change"> -->
+          <% if user.unreliable? %>
+            <%= link_to "לא אמין", set_user_role_path(user: user, role: :unreliable), method: :post, class: "btn btn-primary active" %>
+            <%= link_to "אמין", set_user_role_path(user: user, role: :reliable), method: :post, class: "btn btn-primary" %>
+            <%= link_to "ניהול", set_user_role_path(user: user, role: :admin), method: :post, class: "btn btn-primary" %>
+          <% elsif user.reliable? %>
+            <%= link_to "לא אמין", set_user_role_path(user: user, role: :unreliable), method: :post, class: "btn btn-primary" %>
+            <%= link_to "אמין", set_user_role_path(user: user, role: :reliable), method: :post, class: "btn btn-primary active" %>
+            <%= link_to "ניהול", set_user_role_path(user: user, role: :admin), method: :post, class: "btn btn-primary" %>
+          <% elsif user.admin? %>
+            <%= link_to "לא אמין", set_user_role_path(user: user, role: :unreliable), method: :post, class: "btn btn-primary" %>
+            <%= link_to "אמין", set_user_role_path(user: user, role: :reliable), method: :post, class: "btn btn-primary" %>
+            <%= link_to "ניהול", set_user_role_path(user: user, role: :admin), method: :post, class: "btn btn-primary active" %>
+          <% end %>
+          <!-- </div> -->
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
