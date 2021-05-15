@@ -50,6 +50,19 @@ function onLocationError(e) {
   alert(e.message);
 }
 
+var popup = L.popup();
+
+function onMapClick(e) {
+  console.log(e.latlng.lat);
+    popup
+        .setLatLng(e.latlng)
+        // .setContent("You clicked the map at " + e.latlng.toString())
+        .setContent("<a href='/events/new?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng + "'>דיווח על אירוע בנקודה הזו</a>")
+        .openOn(map);
+}
+
+map.on('click', onMapClick);
+
 map.on('locationfound', onLocationFound);
 
 map.on('locationerror', onLocationError);

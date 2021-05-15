@@ -5,6 +5,8 @@
 #  id          :bigint           not null, primary key
 #  date        :date
 #  description :text
+#  lat         :decimal(, )
+#  long        :decimal(, )
 #  status      :integer
 #  time        :time
 #  created_at  :datetime         not null
