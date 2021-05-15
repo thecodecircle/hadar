@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { locale: I18n.locale }
   end
-  
+
   def user_index
     if user_signed_in? && current_user.admin?
       @users = User.all.order(id: :asc)

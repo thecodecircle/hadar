@@ -1,3 +1,31 @@
+const urlParams = new URLSearchParams(window.location.search);
+const locale = urlParams.get('locale');
+let radius, no_gps, report;
+switch(locale) {
+  case "he":
+    radius_msg = "אתםן נמצאים ברדיוס של %{radius} מטר מהנקודה הזו"
+    no_gps = "למה לא לתת לנו את המיקום? אנחנו מאוד נחמדים, ושום מידע לא מגיע לצוקרברג המניאק"
+    report = "דיווח על אירוע ב"
+    break;
+  case "en":
+    radius_msg = "You are in a radius of %{radius} meters from this point"
+    no_gps = "Why not give us your location? We're very nice, and none of your information will go to that asshole Zuckerburg"
+    report = "Report an event at "
+    break;
+  case "ar":
+    radius_msg = "אתםן נמצאים ברדיוס של %{radius} מטר מהנקודה הזו"
+    no_gps = "למה לא לתת לנו את המיקום? אנחנו מאוד נחמדים, ושום מידע לא מגיע לצוקרברג המניאק"
+    report = "דיווח על אירוע ב"
+    break;
+  case "ru":
+    radius_msg = "אתםן נמצאים ברדיוס של %{radius} מטר מהנקודה הזו"
+    no_gps = "למה לא לתת לנו את המיקום? אנחנו מאוד נחמדים, ושום מידע לא מגיע לצוקרברג המניאק"
+    report = "דיווח על אירוע ב"
+    break;
+}
+console.log("report:" + report);
+console.log(`no_gps: ${no_gps}`);
+
 var map = L.map("map", {
 center: [32.813764236164246, 34.99735056504973],
 zoom: 13
@@ -17,11 +45,11 @@ let marker;
 function onLocationFound(e) {
 var radius = e.accuracy;
 L.marker(e.latlng).addTo(map)
-.bindPopup("אתםן נמצאים ברדיוס של" + radius + " מטר מהנקודה הזו").openPopup();
+.bindPopup(radius_msg.replace("%{radius}", radius)).openPopup();
 L.circle(e.latlng, radius).addTo(map);
 }
 function onLocationError(e) {
-alert("למה לא לתת לנו את המיקום? אנחנו מאוד נחמדים, ושום מידע לא מגיע לצוקרברג המניאק");
+alert(no_gps);
 }
 var popup = L.popup();
 function onMapClick(e) {
@@ -33,11 +61,9 @@ var address = {}
 httpRequest.onreadystatechange = function (data) {
 address = JSON.parse(httpRequest.response).address
 console.log(address.road);
-const urlParams = new URLSearchParams(window.location.search);
-const locale = urlParams.get('locale');
 popup
 .setLatLng(e.latlng)
-.setContent("<a href='/events/new?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng + "&street=" + address.road + "&locale=" + locale + "'>דיווח על אירוע ב" + address.road + "</a>")
+.setContent("<a href='/events/new?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng + "&street=" + address.road + "&locale=" + locale + "'>" + report + address.road + "</a>")
 .openOn(map);
 }
 }
