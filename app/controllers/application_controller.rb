@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in? && current_user.admin?
       @users = User.all.order(id: :asc)
     else
-      redirect_to root
+      redirect_to root_path
     end
   end
 
