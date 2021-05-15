@@ -19,6 +19,6 @@ module Haifapdates
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.default_locale = :he
-    I18n.available_locales = [:he, :ru, :ar]
+    I18n.available_locales = [:he, :ru, :ar, :en]
   end
 end
