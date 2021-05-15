@@ -1,10 +1,11 @@
 <%= simple_form_for(@event) do |f| %>
   <div class="mb-3">דיווח ברחוב <%= params[:street] || @event.street %></div>
   <div class="mb-3">
-    <%= f.input :time, html5: :true,  label: t(:hour),input_html: {class:"form-control"},label_html: {class:"form-label"} %>
+    <% @event.time.present? ? time = @event.time.strftime("%H:%M") : time = Time.now.strftime("%H:%M") %>
+    <%= f.input :time, html5: :true,  label: t(:hour),input_html: {class:"form-control", value: time},label_html: {class:"form-label"} %>
   </div>
   <div class="mb-3">
-    <%= f.input :date, label: t(:date), html5: :true,input_html: {class:"form-control"},label_html: {class:"form-label"}, required: :true  %>
+    <%= f.input :date, label: t(:date), html5: :true,input_html: {class:"form-control", value: @event.date || Date.today},label_html: {class:"form-label"}, required: :true  %>
   </div>
   <div class="mb-3">
     <%= f.input :description, label: t(:description),input_html: {class:"form-control", rows: 10},label_html: {class:"form-label"}  %>
@@ -14,3 +15,6 @@
   <%= f.input :street, label: false, input_html: {class:"d-none", value: params[:street] || @event.street}  %>
   <%= f.button :submit,  t(:send), class: "btn btn-cta w-100" %>
 <% end %>
+<input type="datetime-local" id="meeting-time"
+       name="meeting-time" value="2018-06-12T19:30"
+       min="2018-06-07T00:00" max="2018-06-14T00:00">
