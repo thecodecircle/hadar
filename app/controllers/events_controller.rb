@@ -5,9 +5,9 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     if user_signed_in? && current_user.admin?
-      @events = Event.all
+      @events = Event.all.order(created_at: :desc)
     else
-      @events = Event.where(status: :approved)
+      @events = Event.where(status: :approved).order(created_at: :desc)
     end
   end
 
