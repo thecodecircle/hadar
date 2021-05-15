@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy ]
+  before_action :set_event, only: %i[ show edit update destroy toggle_status ]
   before_action :authenticate_user!, except: :index
 
   # GET /events or /events.json
@@ -13,10 +13,6 @@ class EventsController < ApplicationController
 
   def map
     @events = Event.where(status: :approved).order(created_at: :desc)
-  end
-
-  # GET /events/1 or /events/1.json
-  def show
   end
 
   # GET /events/new
@@ -69,6 +65,18 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, notice: "האירוע נמחק בהצלחה." }
       format.json { head :no_content }
     end
+  end
+
+  def toggle_status
+    if !user_signed_in? || !current_user.admin?
+      redirect_to root_path
+    end
+    if @event.approved?
+      @event.unapproved!
+    elsif @event.unapproved?
+      @event.approved!
+    end
+    redirect_to events_path
   end
 
   private
