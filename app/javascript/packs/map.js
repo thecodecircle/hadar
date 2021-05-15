@@ -53,12 +53,22 @@ function onLocationError(e) {
 var popup = L.popup();
 
 function onMapClick(e) {
-  console.log(e.latlng.lat);
+  var httpRequest = new XMLHttpRequest()
+  var url = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=" + e.latlng.lat + "&lon=" + e.latlng.lng
+  httpRequest.open('GET', url)
+  httpRequest.send()
+  var address = {}
+  httpRequest.onreadystatechange = function (data) {
+    address = JSON.parse(httpRequest.response).address
+    console.log(address.road);
     popup
         .setLatLng(e.latlng)
         // .setContent("You clicked the map at " + e.latlng.toString())
-        .setContent("<a href='/events/new?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng + "'>דיווח על אירוע בנקודה הזו</a>")
+        .setContent("<a href='/events/new?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng + "'>דיווח על אירוע ב" + address.road + "</a>")
         .openOn(map);
+  }
+
+
 }
 
 map.on('click', onMapClick);
