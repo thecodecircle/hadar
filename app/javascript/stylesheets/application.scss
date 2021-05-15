@@ -8,7 +8,7 @@ main {
 }
 nav {
   img {
-    height: 10vh;
+    height: 70px;
   }
   background-color: #fe0000;
 }
@@ -18,8 +18,8 @@ nav {
   position: fixed;
   bottom: 1rem;
   left: 1rem;
-  height: 10vmax;
-  width: 10vmax;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -27,4 +27,52 @@ nav {
   img {
     width: 70%;
   }
+}
+input[type="time"] {
+  direction: ltr;
+}
+.btn-cta {
+  color: #ffffff;
+  background-color: #fe0000;
+  border-color: #b82828;
+}
+
+.btn-cta:hover,
+.btn-cta:focus,
+.btn-cta:active,
+.btn-cta.active,
+.open .dropdown-toggle.btn-cta {
+  color: #ffffff;
+  background-color: #b82828;
+  border-color: #b82828;
+}
+
+.btn-cta:active,
+.btn-cta.active,
+.open .dropdown-toggle.btn-cta {
+  background-image: none;
+}
+
+.btn-cta.disabled,
+.btn-cta[disabled],
+fieldset[disabled] .btn-cta,
+.btn-cta.disabled:hover,
+.btn-cta[disabled]:hover,
+fieldset[disabled] .btn-cta:hover,
+.btn-cta.disabled:focus,
+.btn-cta[disabled]:focus,
+fieldset[disabled] .btn-cta:focus,
+.btn-cta.disabled:active,
+.btn-cta[disabled]:active,
+fieldset[disabled] .btn-cta:active,
+.btn-cta.disabled.active,
+.btn-cta[disabled].active,
+fieldset[disabled] .btn-cta.active {
+  background-color: #fe0000;
+  border-color: #b82828;
+}
+
+.btn-cta .badge {
+  color: #fe0000;
+  background-color: #ffffff;
 }

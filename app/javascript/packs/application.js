@@ -17,3 +17,6 @@ import "bootstrap/dist/css/bootstrap";
 
 import "controllers"
 import "../stylesheets/application";
+
+import {TimepickerUI} from 'timepicker-ui'
+window.TimepickerUI = TimepickerUI

@@ -3,6 +3,7 @@
 # Table name: events
 #
 #  id          :bigint           not null, primary key
+#  date        :date
 #  description :text
 #  status      :integer
 #  time        :time
