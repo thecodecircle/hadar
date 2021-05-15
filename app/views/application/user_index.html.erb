@@ -16,21 +16,21 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td>
-          <!-- <div class="btn-group" role="group" aria-label="<%= user.name %> status change"> -->
+          <div class="btn-group" role="group" aria-label="<%= user.name %> status change">
           <% if user.unreliable? %>
-            <%= link_to "לא אמין", set_user_role_path(user: user, role: :unreliable), method: :post, class: "btn btn-primary active" %>
-            <%= link_to "אמין", set_user_role_path(user: user, role: :reliable), method: :post, class: "btn btn-primary" %>
-            <%= link_to "ניהול", set_user_role_path(user: user, role: :admin), method: :post, class: "btn btn-primary" %>
+            <%= button_to "לא אמין", set_user_role_path(user: user, role: :unreliable), class: "btn btn-primary mx-1 active" %>
+            <%= button_to "אמין", set_user_role_path(user: user, role: :reliable), class: "btn btn-primary mx-1" %>
+            <%= button_to "ניהול", set_user_role_path(user: user, role: :admin), class: "btn btn-primary mx-1" %>
           <% elsif user.reliable? %>
-            <%= link_to "לא אמין", set_user_role_path(user: user, role: :unreliable), method: :post, class: "btn btn-primary" %>
-            <%= link_to "אמין", set_user_role_path(user: user, role: :reliable), method: :post, class: "btn btn-primary active" %>
-            <%= link_to "ניהול", set_user_role_path(user: user, role: :admin), method: :post, class: "btn btn-primary" %>
+            <%= button_to "לא אמין", set_user_role_path(user: user, role: :unreliable), class: "btn btn-primary mx-1" %>
+            <%= button_to "אמין", set_user_role_path(user: user, role: :reliable), class: "btn btn-primary mx-1 active" %>
+            <%= button_to "ניהול", set_user_role_path(user: user, role: :admin), class: "btn btn-primary mx-1" %>
           <% elsif user.admin? %>
-            <%= link_to "לא אמין", set_user_role_path(user: user, role: :unreliable), method: :post, class: "btn btn-primary" %>
-            <%= link_to "אמין", set_user_role_path(user: user, role: :reliable), method: :post, class: "btn btn-primary" %>
-            <%= link_to "ניהול", set_user_role_path(user: user, role: :admin), method: :post, class: "btn btn-primary active" %>
+            <%= button_to "לא אמין", set_user_role_path(user: user, role: :unreliable), class: "btn btn-primary mx-1" %>
+            <%= button_to "אמין", set_user_role_path(user: user, role: :reliable), class: "btn btn-primary mx-1" %>
+            <%= button_to "ניהול", set_user_role_path(user: user, role: :admin), class: "btn btn-primary mx-1 active" %>
           <% end %>
-          <!-- </div> -->
+          </div>
         </td>
       </tr>
     <% end %>
