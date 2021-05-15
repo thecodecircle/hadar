@@ -11,6 +11,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def map
+    @events = Event.where(status: :approved).order(created_at: :desc)
+  end
+
   # GET /events/1 or /events/1.json
   def show
   end

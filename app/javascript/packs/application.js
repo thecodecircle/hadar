@@ -20,3 +20,5 @@ import "../stylesheets/application";
 
 import {TimepickerUI} from 'timepicker-ui'
 window.TimepickerUI = TimepickerUI
+
+import 'leaflet'
