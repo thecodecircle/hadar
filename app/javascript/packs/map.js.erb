@@ -23,8 +23,6 @@ switch(locale) {
     report = "דיווח על אירוע ב"
     break;
 }
-console.log("report:" + report);
-console.log(`no_gps: ${no_gps}`);
 
 var map = L.map("map", {
 center: [32.813764236164246, 34.99735056504973],
@@ -38,7 +36,6 @@ OpenStreetMap_Mapnik.addTo(map);
 <% events = Event.where(status: :approved).order(created_at: :desc) %>
 let marker;
 <% events.each do |event| %>
-  console.log("<%= event.lat %>")
   marker = L.marker([<%= event.lat %>, <%= event.long %>]).addTo(map);
   marker.bindPopup("<%= event.date.strftime("%d/%m") %> | <%= event.time.strftime("%H:%M") %>: <%= event.description %>").openPopup();
 <% end %>
@@ -60,7 +57,6 @@ httpRequest.send()
 var address = {}
 httpRequest.onreadystatechange = function (data) {
 address = JSON.parse(httpRequest.response).address
-console.log(address.road);
 popup
 .setLatLng(e.latlng)
 .setContent("<a href='/events/new?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng + "&street=" + address.road + "&locale=" + locale + "'>" + report + address.road + "</a>")
