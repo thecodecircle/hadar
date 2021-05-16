@@ -58,7 +58,8 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.assets.check_precompiled_asset = false
+  # config.assets.check_precompiled_asset = false
+  # config.serve_static_assets = true
 
 
   # Suppress logger output for asset requests.
