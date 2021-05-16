@@ -11,6 +11,18 @@ nav {
     height: 70px;
   }
   background-color: #fe0000;
+  .nav-link {
+    a {
+      text-decoration: none;
+      img {
+        height: 1.2rem;
+      }
+    }
+  }
+  hr {
+    background-color: white;
+    opacity: 70%;
+  }
 }
 
 .btn-add-event {

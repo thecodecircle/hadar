@@ -33,14 +33,17 @@
             <%= link_to  t(:signup), new_user_registration_path, class: "text-white nav-link" %>
           </li>
         <% end %>
-        <div>
-          האתר נבנה על ידי
-          <%= link_to "https://www.codecircle.co.il/" do %>
-          <%= image_tag "code_circle", size: "120x75", alt: "לוגו הקוד השומרי" %>
-          <% end %>
-          , יחד עם <%= link_to "בן טימור", "https://bentimor.com", class: "link-dark" %>
-           <%= link_to "וערן דה-פז", "https://www.facebook.com/eran.depaz", class: "link-dark" %>
-        </div>
+        <hr>
+        <li class="nav-item text-white">
+          האתר נבנה על ידי:
+        </li>
+        <li class="nav-item text-white nav-link">
+          <%= link_to "https://www.codecircle.co.il/", class: "text-white " do %>
+            <%= image_tag "code_circle", size: "120x75", alt: "לוגו הקוד השומרי" %>
+          <% end %> | 
+          <%= link_to "בן טימור", "https://bentimor.com", class: "text-white " %> | 
+          <%= link_to "וערן דה-פז", "https://www.facebook.com/eran.depaz", class: "text-white " %>
+        </li>
       </ul>
     </div>
     <div class="collapse navbar-collapse" id="navbarLangs">
