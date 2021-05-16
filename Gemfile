@@ -56,11 +56,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
 gem "simple_form", "~> 5.1"
-
 gem "devise", "~> 4.8"
-
- gem 'bootstrap-icons-helper'
-
- gem 'htmlbeautifier'
+gem 'bootstrap-icons-helper'
+gem 'htmlbeautifier'
+gem 'rails-i18n', '~> 6.0.0'
