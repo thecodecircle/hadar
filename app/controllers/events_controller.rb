@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy toggle_status ]
-  before_action :authenticate_user!, except: [:index, :map, :create]
+  before_action :authenticate_user!, except: [:index, :map]
 
   # GET /events or /events.json
   def index
