@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy toggle_status ]
-  before_action :authenticate_user!, except: [:index, :map]
+  before_action :authenticate_user!, except: [:index, :map, :create]
 
   # GET /events or /events.json
   def index
@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def map
-    @events = Event.where(status: :approved).order(created_at: :desc)
+    @events = Event.where(status: :approved).where.not(lat: nil).where.not(long: nil).order(created_at: :desc)
   end
 
   # GET /events/new
