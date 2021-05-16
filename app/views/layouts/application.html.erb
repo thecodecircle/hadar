@@ -13,6 +13,10 @@
           crossorigin=""/>
     <script async defer data-domain="matzav.codecircle.co.il" src="https://plausible.io/js/plausible.js"></script>
     <%= render 'application/favicon' %>
+    <meta property="og:title" content="תמונת מצב - מבזקים חיפאיים" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="<%= asset_path 'favicon/favicon-32x32.png' %>" />
+    <meta property="og:description" content="כלי דיווח והתרעה קהילתי, במטרה לעזור לנו לשמור אחד על השנייה" />
   </head>
   <body>
     <%= render 'layouts/nav' %>
