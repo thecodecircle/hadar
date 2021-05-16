@@ -36,8 +36,8 @@ OpenStreetMap_Mapnik.addTo(map);
 let marker;
 <% events.each do |event| %>
   marker = L.marker([<%= event.lat %>, <%= event.long %>]).addTo(map);
-  marker.bindPopup("<%= event.date.strftime("%d/%m") %> | <%= event.time.strftime("%H:%M") %>: <%= event.description %>").openPopup();
-  //.split("\n").join(" ")
+  marker.bindPopup("<%= event.date.strftime("%d/%m") %> | <%= event.time.strftime("%H:%M") %>: <%= event.description %>".split("\n").join(" ")).openPopup();
+
 <% end %>
 function onLocationFound(e) {
 var radius = e.accuracy;
