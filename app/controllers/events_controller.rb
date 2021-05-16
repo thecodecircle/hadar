@@ -11,8 +11,8 @@ class EventsController < ApplicationController
     end
   end
 
+  # @events defined in map.js.erb
   def map
-    @events = Event.where(status: :approved).where.not(lat: nil).where.not(long: nil).order(created_at: :desc)
   end
 
   # GET /events/new
@@ -36,7 +36,11 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to events_url, notice: "האירוע נוצר בהצלחה." }
+        if current_user.unreliable?
+          format.html { redirect_to events_url, notice: "האירוע נוצר בהצלחה ומחכה לאחד המנהלים לאישור. בקשה להיות מדווחת מהימנה תפטור אותך מלחכות" }
+        else
+          format.html { redirect_to events_url, notice: "האירוע נוצר בהצלחה." }
+        end
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new, status: :unprocessable_entity }
