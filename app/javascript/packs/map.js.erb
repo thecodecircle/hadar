@@ -64,6 +64,8 @@ popup
 .openOn(map);
 }
 }
+map.addControl(new L.Control.Fullscreen());
+
 map.on('click', onMapClick);
 map.on('locationfound', onLocationFound);
 map.on('locationerror', onLocationError);
