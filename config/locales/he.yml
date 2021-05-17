@@ -10,6 +10,7 @@ he:
   description: "תיאור"
   send: "שליחה"
   whatsapp: "בקשה להיות מדווחת מהימנה"
+  bugs: "דיווח על תקלה ויצירת קשר"
   devise:
     confirmations:
       confirmed: חשבונך אושר בהצלחה.

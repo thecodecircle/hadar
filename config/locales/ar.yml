@@ -12,6 +12,7 @@ ar:
   delete: "حذف"
   edit_event: "تعديل ابلاغ"
   whatsapp: "בקשה להיות מדווחת מהימנה"
+  bugs: "דיווח על תקלה ויצירת קשר"
   devise:
     confirmations:
       confirmed: تم تأكيد عنوان بريدك الإلكتروني بنجاح.
