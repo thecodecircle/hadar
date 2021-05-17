@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   # @events defined in map.js.erb
   def map
+    render layout: 'map'
   end
 
   # GET /events/new
