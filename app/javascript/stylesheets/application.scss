@@ -106,3 +106,35 @@ fieldset[disabled] .btn-cta.active {
     white-space: pre-line;
   }
 }
+footer{
+  background-color: darken(#fe0000, 10%);
+  width: 100%;
+  left: 0;
+  right: 0;
+  display: none;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  a {
+    text-decoration: none;
+    img {
+      height: 1.2rem;
+    }
+  }
+}
+.credits{
+    display: block;
+}
+@include media-breakpoint-up(md) {
+  footer{
+    display: flex !important
+
+  }
+  .credits{
+      display: none;
+  }
+
+  .btn-add-event {
+    bottom: 4rem;
+  }
+}

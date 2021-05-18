@@ -44,7 +44,7 @@ fetch('/events.json')
   });
 
 function onLocationFound(e) {
-    var radius = e.accuracy;
+    var radius = Math.round(e.accuracy);
     L.marker(e.latlng).addTo(map)
         .bindPopup(radius_msg.replace("%{radius}", radius)).openPopup();
     L.circle(e.latlng, radius).addTo(map);
