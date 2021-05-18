@@ -4,7 +4,11 @@
 }
 
 main {
-  padding: 1rem;
+  padding: 1rem 1rem 4rem 1rem;
+}
+a:hover,
+a:focus {
+  outline: 2px solid white;
 }
 nav {
   img {
@@ -14,6 +18,7 @@ nav {
   .nav-link {
     a {
       text-decoration: none;
+      border-bottom: 1px solid white;
       img {
         height: 1.2rem;
       }
@@ -106,7 +111,7 @@ fieldset[disabled] .btn-cta.active {
     white-space: pre-line;
   }
 }
-footer{
+footer {
   background-color: darken(#fe0000, 10%);
   width: 100%;
   left: 0;
@@ -115,23 +120,24 @@ footer{
   height: 3rem;
   align-items: center;
   justify-content: center;
+  z-index: 100;
   a {
     text-decoration: none;
+    border-bottom: 1px solid white;
     img {
       height: 1.2rem;
     }
   }
 }
-.credits{
-    display: block;
+.credits {
+  display: block;
 }
 @include media-breakpoint-up(md) {
-  footer{
-    display: flex !important
-
+  footer {
+    display: flex !important;
   }
-  .credits{
-      display: none;
+  .credits {
+    display: none;
   }
 
   .btn-add-event {
