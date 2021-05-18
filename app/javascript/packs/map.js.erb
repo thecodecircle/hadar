@@ -32,14 +32,8 @@ var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 OpenStreetMap_Mapnik.addTo(map);
-<%# events = Event.where(status: :approved).where.not(lat: nil).where.not(long: nil).order(created_at: :desc) %>
-let marker;
-<%# events.each do |event| %>
-  // marker = L.marker([<%# event.lat %>, <%# event.long %>]).addTo(map);
-  // console.log("<%# event.description %>");
-  // marker.bindPopup(`<%# event.date.strftime("%d/%m") %> | <%# event.time.strftime("%H:%M") %>: <%# event.description %>`).openPopup();
-<%# end %>
 
+let marker;
 fetch('/events.json')
   .then(response => response.json())
   .then(data => {
