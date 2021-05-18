@@ -24,7 +24,3 @@ window.TimepickerUI = TimepickerUI
 import 'leaflet'
 
 require("service_workers")
-//
-// if ('serviceWorker' in navigator) {
-//   navigator.serviceWorker.register('/service-worker.js');
-// }

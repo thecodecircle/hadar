@@ -1,9 +1,8 @@
-console.log("service worker!");
-
 import { registerRoute } from 'workbox-routing';
 import { NetworkFirst, StaleWhileRevalidate, CacheFirst } from 'workbox-strategies';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { ExpirationPlugin } from 'workbox-expiration';
+
 
 // Loading pages (and turbolinks requests), checks the network first
 registerRoute(
